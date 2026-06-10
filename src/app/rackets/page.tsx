@@ -14,7 +14,7 @@ export default function RacketsPage(): ReactNode {
             {/* Main Two-Column Layout Split */}
             <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-8 items-start">
 
-                {/* LEFT COLUMN: BRAND SIDEBAR (Stays identical to rackets-page.png) */}
+                {/* LEFT COLUMN: BRAND SIDEBAR  */}
                 <aside className="flex flex-col gap-4">
                     <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Бренд</h3>
                     <ul className="space-y-3 text-sm">
@@ -28,7 +28,7 @@ export default function RacketsPage(): ReactNode {
                     </ul>
                 </aside>
 
-                {/* RIGHT COLUMN: REPLACED GRID WITH SHADCN CAROUSEL */}
+                {/* RIGHT COLUMN */}
                 <main className="w-full min-w-0">
                     <Carousel opts={{ align: "start" }} className="w-full relative">
                         <CarouselContent className="-ml-4">

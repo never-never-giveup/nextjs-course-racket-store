@@ -44,11 +44,6 @@ export default async function RacketPage({ params }: { params: { id: string } })
                     <div className="text-2xl font-bold tracking-tight text-foreground lg:pt-2">
                         {racket.price} {'eur'}
                     </div>
-
-                    {/* Bonus UX Step: The design in the image doesn't show a checkout button yet,
-            but you can place a primary shadcn button directly below the price here if needed:
-            <Button size="lg" className="w-full lg:w-auto">Добавить в корзину</Button>
-          */}
                 </section>
             </div>
         </div>
