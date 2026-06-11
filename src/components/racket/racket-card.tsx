@@ -1,6 +1,6 @@
 import {Card, CardContent} from "@/components/ui/card";
 
-export interface RacketCardProps {
+type RacketCardProps = {
     name: string;
     imageUrl: string;
 }

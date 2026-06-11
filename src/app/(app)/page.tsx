@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {RacketCard} from "@/components/racket-card";
+import {RacketCard} from "@/components/racket/racket-card";
 import {rackets} from "@/data/mock";
 
 const products = rackets.slice(0, 3);

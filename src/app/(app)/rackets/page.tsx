@@ -2,7 +2,7 @@ import { ReactNode} from "react";
 import {rackets} from "@/data/mock";
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
 import Link from "next/link";
-import {RacketCard} from "@/components/racket-card";
+import {RacketCard} from "@/components/racket/racket-card";
 
 const brands = ["All", "Head", "Yonex"];
 
