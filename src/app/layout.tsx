@@ -7,7 +7,7 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const RootLayout: FC<LayoutProps<'/'>> = ({ children }) => (
     <html lang='en' className={cn("font-sans", geist.variable)}>
-        <body>{children}</body>
+        <body className="w-dvw">{children}</body>
     </html>
 );
 

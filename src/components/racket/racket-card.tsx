@@ -1,14 +1,16 @@
 import {Card, CardContent} from "@/components/ui/card";
+import {PropsWithChildren} from "react";
+import {cn} from "@/lib/utils";
 
 type RacketCardProps = {
     name: string;
     imageUrl: string;
 }
 
-export const RacketCard: React.FC<RacketCardProps> = ({ name, imageUrl}) => (
-    <div className="flex flex-col gap-3 group cursor-pointer">
+export const RacketCard: React.FC<PropsWithChildren<RacketCardProps>> = ({ name, imageUrl }) => (
+    <div className={cn('flex', 'flex-col', 'gap-3', 'group cursor-pointer', 'inline-block')}>
 
-        <Card className="overflow-hidden border-zinc-200 rounded-xl bg-white shadow-none transition-all duration-200 hover:border-zinc-300">
+        <Card className="overflow-hidden border-zinc-200 rounded-xl bg-white shadow-none transition-all duration-200 hover:border-zinc-300 w-96">
             <CardContent className="p-6 flex items-center justify-center aspect-3/4">
                 <img
                     src={imageUrl}
