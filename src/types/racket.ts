@@ -7,5 +7,7 @@ export type Racket = {
     id: number,
     name: string,
     imageUrl: string,
-    brand: Brand
+    brand: Brand,
+    description: string,
+    price: number,
 }
