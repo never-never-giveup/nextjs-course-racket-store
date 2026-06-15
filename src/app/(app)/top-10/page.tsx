@@ -1,16 +1,18 @@
 import {ReactNode} from "react";
-import {get} from "@/data/api-access";
-import {Racket} from "@/data/types/racket";
 import {RacketSelectionItem} from "@/components/racket-selection-item";
 import {Selection} from "@/components/selection";
+import {getTop10} from "@/services/get-top10";
 
 export default async function Top10Page(): Promise<ReactNode> {
-    const top10 = await get<Racket[]>({
-        path: 'top-10',
-    });
+    const {isError, data: top10 } = await getTop10();
+
+    if (isError) {
+        // TODO: do normal error handling
+        throw new Error('Error during data fetch');
+    }
 
     return <Selection title='Top 10'>
-        {top10.map((product) =>
+        {top10!.map((product) =>
             <RacketSelectionItem
                 key={product.id}
                 id={`${product.id}`}

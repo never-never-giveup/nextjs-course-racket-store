@@ -1,7 +1,7 @@
 import { ReactNode} from "react";
 import {RacketFilter} from "@/components/rackets-filter";
 import {RacketsList} from "@/components/rackets-list";
-import {Racket} from "@/data/types/racket";
+import {Racket} from "@/types/racket";
 
 type Props = {
     rackets: Racket[];
