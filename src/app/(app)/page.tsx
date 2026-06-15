@@ -11,7 +11,7 @@ export default async function Home() {
     ]);
     return (
         <>
-            <Selection title='Ракетки' hrefToAll='/rackets'>
+            <Selection title='Ракетки' hrefToAll='/rackets' className='mb-16'>
                 {products.map((product) =>
                     <RacketSelectionItem
                         key={product.id}

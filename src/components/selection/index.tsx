@@ -1,13 +1,15 @@
 import {PropsWithChildren} from "react";
 import Link from "next/link";
+import {cn} from "@/lib/utils";
 
 type Props = {
     title: string;
     hrefToAll?: string;
+    className?: string;
 }
 
-export const Selection: React.FC<PropsWithChildren<Props>> = ({title, hrefToAll, children}) => (
-    <div className="flex flex-col gap-6">
+export const Selection: React.FC<PropsWithChildren<Props>> = ({title, hrefToAll, children, className}) => (
+    <div className={cn('flex', 'flex-col', 'gap-6',  className)}>
         <div className="flex justify-between items-baseline pb-2">
             {/* Left: Section Title */}
             <h2 className="text-2xl font-bold tracking-tight text-foreground">
