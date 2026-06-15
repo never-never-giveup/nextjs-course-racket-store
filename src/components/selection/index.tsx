@@ -3,7 +3,7 @@ import Link from "next/link";
 
 type Props = {
     title: string;
-    hrefToAll: string;
+    hrefToAll?: string;
 }
 
 export const Selection: React.FC<PropsWithChildren<Props>> = ({title, hrefToAll, children}) => (
@@ -15,12 +15,14 @@ export const Selection: React.FC<PropsWithChildren<Props>> = ({title, hrefToAll,
             </h2>
 
             {/* Right: Simple, clean Text Link */}
-            <Link
-                href={hrefToAll}
-                className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline transition-all"
-            >
-                Все
-            </Link>
+            {hrefToAll ?
+                <Link
+                    href={hrefToAll}
+                    className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline transition-all"
+                >
+                    Все
+                </Link> : null
+            }
         </div>
         <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {children}

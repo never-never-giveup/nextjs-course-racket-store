@@ -1,9 +1,14 @@
 import { ReactNode} from "react";
-import {rackets} from "@/data/mock";
 import {RacketFilter} from "@/components/rackets-filter";
 import {RacketsList} from "@/components/rackets-list";
+import {Racket} from "@/data/types/racket";
+import {get} from "@/data/api-access";
 
-export default function RacketsPage(): ReactNode {
+export default async function RacketsPage(): Promise<ReactNode> {
+    const rackets = await get<Racket[]>({
+        path: 'products',
+        limit: 20
+    })
     return (
         <div className="flex flex-col gap-6">
             <h1 className="text-3xl font-bold tracking-tight">Ракетки</h1>
