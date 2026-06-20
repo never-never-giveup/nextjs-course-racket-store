@@ -1,18 +1,24 @@
-import {rackets} from "@/data/mock";
 import {Racket} from "@/components/racket";
+import {getRacketById} from "@/services/get-racket-by-id";
+import {notFound} from "next/navigation";
 
 type Props = {
     id: string;
 }
 
-export const RacketContainer: React.FC<Props> = ({ id }) => {
-    const racket = rackets.find(
-        r => `${r.id}` === id
-    );
+export const RacketContainer: React.FC<Props> = async ({ id }) => {
+    const { isError, data } = await getRacketById(id);
 
-    if (!racket) {
-        return null;
+    if (isError) {
+        // TODO: implement proper error page
+        throw new Error('Something went wrong!');
     }
+
+    if (!data) {
+        return notFound();
+    }
+
+    const { product: racket } = data;
 
     return <Racket
         brandName={racket.brand.name}

@@ -1,19 +1,18 @@
-import {rackets} from "@/data/mock";
-import {Selection} from "@/components/selection";
-import {RacketSelectionItem} from "@/components/racket-selection-item";
+import {getRackets} from "@/services/get-rackets";
+import {getTop10} from "@/services/get-top10";
+import {Suspense} from "react";
+import {RacketsSelectionContainer} from "@/components/rackets-selection-container";
 
-const products = rackets.slice(0, 3);
 
-export default function Home() {
+export default async function Home() {
     return (
-        <Selection title='Ракетки' hrefToAll='/rackets'>
-            {products.map((product) =>
-                <RacketSelectionItem
-                    key={product.id}
-                    id={`${product.id}`}
-                    href={product.imageUrl}
-                    name={product.name} />
-            )}
-        </Selection>
+        <>
+            <Suspense fallback={<div>Loading rackets</div>}>
+                <RacketsSelectionContainer title="Ракетки" getRackets={getRackets} hrefToAll='/rackets' className='mb-16' />
+            </Suspense>
+            <Suspense fallback={<div>Loading top 10</div>}>
+                <RacketsSelectionContainer title="Top 10" getRackets={getTop10} />
+            </Suspense>
+        </>
     );
 }
