@@ -1,4 +1,4 @@
 export type GetOneResponse<ResponseType> = Promise<{
-    isError: boolean;
-    data?: ResponseType;
-}>;
+  isError: boolean
+  data?: ResponseType
+}>

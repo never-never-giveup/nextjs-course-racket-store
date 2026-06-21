@@ -1,14 +1,14 @@
-import './globals.css';
-import {FC} from "react";
-import {cn} from "@/lib/utils";
-import { Geist } from "next/font/google";
+import './globals.css'
+import { FC } from 'react'
+import { cn } from '@/lib/utils'
+import { Geist } from 'next/font/google'
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
 const RootLayout: FC<LayoutProps<'/'>> = ({ children }) => (
-    <html lang='en' className={cn("font-sans", geist.variable)}>
-        <body className="w-dvw">{children}</body>
-    </html>
-);
+  <html lang="en" className={cn('font-sans', geist.variable)}>
+    <body className="w-dvw">{children}</body>
+  </html>
+)
 
-export default RootLayout;
+export default RootLayout
