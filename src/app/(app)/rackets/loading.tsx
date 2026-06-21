@@ -1,5 +1,5 @@
-import {ReactNode} from "react";
+import { ReactNode } from 'react'
 
-export default function Loading (): ReactNode {
-    return <div>Loading rackets page...</div>;
+export default function Loading(): ReactNode {
+  return <div>Loading rackets page...</div>
 }

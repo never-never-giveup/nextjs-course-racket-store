@@ -1,28 +1,24 @@
-import {Card, CardContent} from "@/components/ui/card";
-import {PropsWithChildren} from "react";
-import {cn} from "@/lib/utils";
+import { Card, CardContent } from '@/components/ui/card'
+import { PropsWithChildren } from 'react'
+import { cn } from '@/lib/utils'
 
 type RacketCardProps = {
-    name: string;
-    imageUrl: string;
+  name: string
+  imageUrl: string
 }
 
 export const RacketCard: React.FC<PropsWithChildren<RacketCardProps>> = ({ name, imageUrl }) => (
-    <div className={cn('flex', 'flex-col', 'gap-3', 'group cursor-pointer', 'inline-block')}>
+  <div className={cn('flex', 'flex-col', 'gap-3', 'group cursor-pointer', 'inline-block')}>
+    <Card className="overflow-hidden border-zinc-200 rounded-xl bg-white shadow-none transition-all duration-200 hover:border-zinc-300 w-96">
+      <CardContent className="p-6 flex items-center justify-center aspect-3/4">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200"
+        />
+      </CardContent>
+    </Card>
 
-        <Card className="overflow-hidden border-zinc-200 rounded-xl bg-white shadow-none transition-all duration-200 hover:border-zinc-300 w-96">
-            <CardContent className="p-6 flex items-center justify-center aspect-3/4">
-                <img
-                    src={imageUrl}
-                    alt={name}
-                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200"
-                />
-            </CardContent>
-        </Card>
-
-        <div className="text-sm font-medium text-muted-foreground px-1">
-            {name}
-        </div>
-
-    </div>
+    <div className="text-sm font-medium text-muted-foreground px-1">{name}</div>
+  </div>
 )
