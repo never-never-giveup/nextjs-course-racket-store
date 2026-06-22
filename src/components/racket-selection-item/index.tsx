@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const RacketSelectionItem: React.FC<Props> = ({ id, href, name }) => (
-  <Link href={`/rackets/${id}`}>
+  <Link href={`/rackets/${id}`} prefetch={false}>
     <RacketCard name={name} imageUrl={href} />
   </Link>
 )

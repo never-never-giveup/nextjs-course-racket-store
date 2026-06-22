@@ -3,10 +3,12 @@ import { GetManyResponse } from '@/types/get-many-response'
 
 export const getMany = async <T>(
   path: string,
-  queryParams?: Record<string, string>
+  queryParams?: Record<string, string>,
+  fetchParams?: Parameters<typeof fetch>[1]
 ): GetManyResponse<T> => {
   const response = await fetch(
-    `${BASE_API_URL}${path}${queryParams ? '?' + new URLSearchParams(queryParams).toString() : ''}`
+    `${BASE_API_URL}${path}${queryParams ? '?' + new URLSearchParams(queryParams).toString() : ''}`,
+    fetchParams
   )
 
   if (!response.ok) {
