@@ -6,7 +6,6 @@ import { UserContext } from '@/providers/user'
 
 export const Header: FC = () => {
   const user = useContext(UserContext)
-  console.log(user)
   return (
     <header className="w-full border-b bg-white py-4 px-4 md:px-8">
       <div className="max-w-7xl w-full mx-auto flex items-center justify-between">

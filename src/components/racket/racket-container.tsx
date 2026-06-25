@@ -20,8 +20,6 @@ export const RacketContainer: React.FC<Props> = async ({ id }) => {
 
   const { product: racket } = data
 
-  console.log(racket)
-
   return (
     <Racket
       brandName={racket.brand.name}

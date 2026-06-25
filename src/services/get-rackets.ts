@@ -8,6 +8,7 @@ export const getRackets = async (limit: number = 10): GetManyResponse<Racket> =>
     {
       limit: `${limit}`,
     },
+    undefined,
     true
   ) as GetManyResponse<Racket>
 }

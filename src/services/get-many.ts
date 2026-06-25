@@ -16,16 +16,14 @@ export const getMany = async <T>(
 
   const response = await fetch(
     `${BASE_API_URL}${path}${queryParams ? '?' + new URLSearchParams(queryParams).toString() : ''}`,
-    cookieStore ? { ...fetchParams, headers: {(...fetchParams.headers ?? {}), Cookie }}
-    fetchParams
-    `${BASE_API_URL}${path}${queryParams ? '?' + new URLSearchParams(queryParams).toString() : ''}`,
-    {
-      headers: cookieStore
-        ? {
+    cookieStore
+      ? {
+          ...(fetchParams ?? {}),
+          headers: {
             Cookie: cookieStore.toString(),
-          }
-        : {},
-    }
+          },
+        }
+      : fetchParams
   )
 
   if (!response.ok) {
