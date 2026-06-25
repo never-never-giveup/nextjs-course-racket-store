@@ -1,12 +1,9 @@
 import { FC } from 'react'
 import { RacketCard } from '@/components/racket/racket-card'
+import type { Racket as RacketType } from '@/types/racket'
 
-type Props = {
+type Props = Pick<RacketType, 'userData' | 'name' | 'description' | 'imageUrl' | 'price'> & {
   brandName: string
-  name: string
-  description: string
-  imageUrl: string
-  price: number
 }
 
 export const Racket: FC<Props> = (props) => {
@@ -26,7 +23,7 @@ export const Racket: FC<Props> = (props) => {
         </section>
 
         <main className="w-full flex justify-center">
-          <RacketCard name={props.name} imageUrl={props.imageUrl} />
+          <RacketCard name={props.name} imageUrl={props.imageUrl} userData={props.userData} />
         </main>
 
         <section className="flex flex-col gap-6 lg:text-right">
