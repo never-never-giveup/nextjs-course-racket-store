@@ -3,7 +3,10 @@ import { BASE_API_URL } from '@/constants/api'
 import { cookies } from 'next/headers'
 import { parseSetCookie } from '@/helpers/parse-set-cookie'
 
-export const loginAction = async (state, formData: FormData) => {
+export const loginAction = async (
+  state: { error: string } | { redirectTo: string },
+  formData: FormData
+) => {
   const login = formData.get('login')
   const password = formData.get('password')
 

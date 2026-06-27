@@ -3,7 +3,10 @@ import { BASE_API_URL } from '@/constants/api'
 import { cookies } from 'next/headers'
 import { parseSetCookie } from '@/helpers/parse-set-cookie'
 
-export const signupAction = async (state, formData: FormData) => {
+export const signupAction = async (
+  state: { redirectTo: string } | { error: string },
+  formData: FormData
+) => {
   const login = formData.get('login')
   const password = formData.get('password')
 
@@ -21,7 +24,7 @@ export const signupAction = async (state, formData: FormData) => {
   if (result.status !== 200) {
     const { error } = await result.json()
     return {
-      error: error ?? 'Signup failed.', // Not the best practice to expose raw error, but for the sake of HW simplicity...
+      error: (error as string) ?? 'Signup failed.', // Not the best practice to expose raw error, but for the sake of HW simplicity...
     }
   }
 
