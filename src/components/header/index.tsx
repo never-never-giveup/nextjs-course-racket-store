@@ -1,9 +1,11 @@
 'use client'
 
 import { HeaderLink } from '@/components/header-link'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
+import { UserContext } from '@/providers/user'
 
 export const Header: FC = () => {
+  const user = useContext(UserContext)
   return (
     <header className="w-full border-b bg-white py-4 px-4 md:px-8">
       <div className="max-w-7xl w-full mx-auto flex items-center justify-between">
@@ -19,6 +21,13 @@ export const Header: FC = () => {
         <nav className="flex gap-4 md:gap-6 text-sm text-muted-foreground md:flex-1 md:justify-end">
           <HeaderLink href="/">Главная</HeaderLink>
           <HeaderLink href="/rackets">Ракетки</HeaderLink>
+          {user?.login && <HeaderLink href="/logout">Выйти</HeaderLink>}
+          {!user?.login && (
+            <>
+              <HeaderLink href="/login">Вход</HeaderLink>
+              <HeaderLink href="/signup">Регистрация</HeaderLink>
+            </>
+          )}
         </nav>
       </div>
     </header>

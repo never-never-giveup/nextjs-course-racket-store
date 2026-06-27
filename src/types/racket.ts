@@ -10,4 +10,7 @@ export type Racket = {
   brand: Brand
   description: string
   price: number
+  userData: {
+    isFavorite: boolean
+  } | null
 }

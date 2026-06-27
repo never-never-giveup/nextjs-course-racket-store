@@ -31,6 +31,7 @@ export const RacketsSelectionContainer: FC<Props> = async ({
           id={`${product.id}`}
           href={product.imageUrl}
           name={product.name}
+          userData={product.userData}
         />
       ))}
     </Selection>

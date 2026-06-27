@@ -7,5 +7,5 @@ export const getTop10 = async (): GetManyResponse<Racket> => {
     next: {
       tags: ['top-10'],
     },
-  }) as GetManyResponse<Racket>
+  }, true) as GetManyResponse<Racket>
 }
