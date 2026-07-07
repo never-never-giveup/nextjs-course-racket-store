@@ -27,7 +27,10 @@ export const RacketCard: React.FC<PropsWithChildren<RacketCardProps>> = ({
               size="icon"
               className="absolute top-3 right-3 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white text-gray-700 hover:text-red-600"
               aria-label="Add to favorites"
-              onClick={() => console.log('Added to favorites')}
+              onClick={(event) => {
+                event.nativeEvent.stopImmediatePropagation()
+                event.preventDefault()
+              }}
             >
               <Heart
                 className={cn(
