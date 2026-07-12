@@ -12,7 +12,12 @@ export const RacketsList: FC<Props> = ({ rackets }) => {
     <>
       {rackets.map((racket) => (
         <Link key={racket.id} href={`/rackets/${racket.id}`} className="m-3" prefetch={false}>
-          <RacketCard name={racket.name} imageUrl={racket.imageUrl} userData={racket.userData} />
+          <RacketCard
+            name={racket.name}
+            imageUrl={racket.imageUrl}
+            userData={racket.userData}
+            id={racket.id}
+          />
         </Link>
       ))}
     </>

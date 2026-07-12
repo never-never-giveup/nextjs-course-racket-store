@@ -1,47 +1,33 @@
 'use client'
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { PropsWithChildren, useContext } from 'react'
+import { PropsWithChildren, useContext, FC } from 'react'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Heart } from 'lucide-react'
 import { Racket } from '@/types/racket'
 import { UserContext } from '@/providers/user'
+import { ToggleFavoriteButton } from '@/components/toggle-favorite-button'
+import { useHydrateFavorite } from '@/providers/favorites/hooks/use-hydrate-favorite'
+import { useIsFavoriteById } from '@/providers/favorites/hooks/use-is-favorite-by-id'
 
-type RacketCardProps = Pick<Racket, 'name' | 'imageUrl' | 'userData'>
+type RacketCardProps = Pick<Racket, 'name' | 'imageUrl' | 'userData' | 'id'>
 
-export const RacketCard: React.FC<PropsWithChildren<RacketCardProps>> = ({
+export const RacketCard: FC<PropsWithChildren<RacketCardProps>> = ({
   name,
   imageUrl,
   userData,
+  id,
 }) => {
   const user = useContext(UserContext)
+
+  useHydrateFavorite({ id, isFavorite: userData?.isFavorite })
+
+  const isFavorite = useIsFavoriteById({ id, isFavoriteInitial: userData?.isFavorite })
 
   return (
     <div className={cn('flex', 'flex-col', 'gap-3', 'group cursor-pointer', 'inline-block')}>
       <Card className="overflow-hidden border-zinc-200 rounded-xl bg-white shadow-none transition-all duration-200 hover:border-zinc-300 w-96">
         <CardHeader className="p-0 relative">
-          {user && (
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute top-3 right-3 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white text-gray-700 hover:text-red-600"
-              aria-label="Add to favorites"
-              onClick={(event) => {
-                event.nativeEvent.stopImmediatePropagation()
-                event.preventDefault()
-              }}
-            >
-              <Heart
-                className={cn(
-                  'h-4',
-                  'w-4',
-                  { 'text-red-500': userData?.isFavorite },
-                  { 'fill-red-500': userData?.isFavorite }
-                )}
-              />
-            </Button>
-          )}
+          {user && <ToggleFavoriteButton id={id} isFavorite={isFavorite} />}
         </CardHeader>
         <CardContent className="p-6 flex items-center justify-center aspect-3/4">
           <img

@@ -28,6 +28,7 @@ export const RacketContainer: React.FC<Props> = async ({ id }) => {
       imageUrl={racket.imageUrl}
       price={racket.price}
       userData={racket.userData}
+      id={racket.id}
     />
   )
 }
