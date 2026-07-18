@@ -28,7 +28,7 @@ export const RacketsSelectionContainer: FC<Props> = async ({
       {rackets.map((product) => (
         <RacketSelectionItem
           key={product.id}
-          id={`${product.id}`}
+          id={product.id}
           href={product.imageUrl}
           name={product.name}
           userData={product.userData}
